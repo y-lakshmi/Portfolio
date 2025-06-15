@@ -1,0 +1,299 @@
+@import url('https://fonts.cdnfonts.com/css/samsung-sans-4');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Background image behind header and hero */
+.home-wrapper {
+    background-image: url("background.png"); /* Replace with your actual image filename */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+}
+
+.home-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* optional overlay */
+    z-index: 1;
+}
+
+/* Ensure content inside appears above the overlay */
+header nav,
+.hero {
+    position: relative;
+    z-index: 2;
+}
+
+/* Always show the header */
+header {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    padding-top: 20px;
+}
+
+body {
+    background-color: black;
+    font-family: 'Samsung Sans', sans-serif;
+}
+
+img {
+    border-radius: 100px;
+}
+
+nav {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navlist a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin-left: 20px;
+    background-color:greenyellow;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.navlist a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: yellow;
+    left: 0;
+    bottom: -10px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navlist a:hover {
+    background-color: pink;
+}
+
+.navlist a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Hero section styles */
+.hero {
+    color:lightpink;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.resume-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Project and section toggling logic */
+.project,
+.skills,
+.footer {
+    display: none;
+}
+
+#Projects:target,
+#Skills:target,
+#Contact:target {
+    display: block;
+}
+
+body:has(#Projects:target) .hero,
+body:has(#Skills:target) .hero,
+body:has(#Contact:target) .hero {
+    display: none;
+}
+
+/* Skills Section */
+.skill-content-box {
+    background: linear-gradient(90deg,
+        rgba(131, 58, 180, 1) 0%,
+        rgba(253, 29, 29, 1) 50%,
+        rgba(252, 176, 69, 1) 90%);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.tech-logos img,
+.front-logos img {
+    width: 60px;
+    height: 100px;
+}
+
+.database-logo img {
+    width: 50px;
+    height: 90px;
+}
+
+.skills {
+    padding: 60px 0;
+}
+
+.skill-container h2 {
+    color: aquamarine;
+    text-align: center;
+}
+
+.skill-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.skill-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    border-radius: 15px;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(238, 174, 202, 1) 13%, rgba(61, 209, 209, 0.9) 34%, rgba(209, 199, 61, 1) 56%, rgba(61, 209, 110, 1) 72%, rgba(61, 199, 209, 1) 89%, rgba(130, 61, 209, 1) 100%);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    background-color: #333;
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: orange;
+}
+
+.skill-card p {
+    font-size: 16px;
+    color: #bc349c;
+}
+
+/* Projects Section */
+.project-content-box {
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 12%, rgba(237, 221, 83, 1) 100%);
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 60px;
+    color: white;
+}
+
+.project-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.project-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: linear-gradient(145deg, #1f1f1f, #333);
+    border-radius: 15px;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-content-box h2 {
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background-color: #444;
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    margin-top: 15px;
+    font-size: 20px;
+    color: yellow;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #f8dfff;
+    margin-top: 10px;
+}
+
+/* Footer Section */
+.footer {
+    background-color: gray;
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.Contact h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: yellowgreen;
+}
